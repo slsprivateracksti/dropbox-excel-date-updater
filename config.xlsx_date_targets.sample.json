@@ -1,0 +1,22 @@
+{
+  "facilities": [
+    {
+      "name": "A施設",
+      "file_path": "D薬局\\①入居者一覧・セット表\\入居者一覧（Hグループ）.xlsx",
+      "sheet_name": "A施設",
+      "date_format": "M/D",
+      "targets": [
+        { "type": "cell", "address": "" }
+      ]
+    },
+    {
+      "name": "B施設",
+      "file_path": "D薬局\\①入居者一覧・セット表\\入居者一覧（Hグループ）.xlsx",
+      "sheet_name": "B施設",
+      "date_format": "M/D",
+      "targets": [
+        { "type": "cell", "address": "H1" }
+      ]
+    }
+  ]
+}

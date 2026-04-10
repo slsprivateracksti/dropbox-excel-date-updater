@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.env
+.venv/
+venv/
+
+# 設定マスタ（PC固有のパスが含まれるため除外）
+config.xlsx_date_targets.json
+config.xlsx_date_targets.csv
+
+# 代わりにサンプルをリポジトリに含める
+!config.xlsx_date_targets.sample.json
+
+# VS Code
+.vscode/settings.json
+
+# Windows
+Thumbs.db
+Desktop.ini
