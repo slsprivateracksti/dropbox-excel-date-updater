@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Dropbox内のExcelファイルへ指定セルに日付を自動入力するWindows向けデスクトップツール。単体実行・複数施設一括実行・履歴パターン管理に対応。">
+  <meta name="keywords" content="Dropbox, Excel, 日付入力, 自動化, Windows, 事務, 介護, 医療">
+  <meta property="og:title" content="Dropbox Excel 日付更新ツール">
+  <meta property="og:description" content="Dropbox上のExcel日付入力を一発自動化。事務・介護・医療施設向けWindowsデスクトップツール。">
+  <meta property="og:url" content="https://slsprivateracksti.github.io/dropbox-excel-date-updater/">
+  <meta property="og:type" content="website">
+  <title>Dropbox Excel 日付更新ツール — Dropbox Excel Date Updater</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════
+       NAVIGATION
+  ═══════════════════════════════════════════ -->
+  <nav class="nav" role="navigation" aria-label="メインナビゲーション">
+    <div class="container">
+      <div class="nav__inner">
+        <a class="nav__brand" href="#top">
+          <div class="nav__brand-icon">XL</div>
+          <span class="nav__brand-name">Dropbox Excel Date Updater</span>
+        </a>
+        <ul class="nav__links" role="list">
+          <li><a class="nav__link" href="#features">機能</a></li>
+          <li><a class="nav__link" href="#screenshots">画面</a></li>
+          <li><a class="nav__link" href="#quickstart">クイックスタート</a></li>
+          <li><a class="nav__link" href="#docs">ドキュメント</a></li>
+          <li>
+            <a class="nav__link nav__link--cta"
+               href="https://github.com/slsprivateracksti/dropbox-excel-date-updater/releases/download/v2.0.0/main.exe"
+               target="_blank" rel="noopener">
+              ⬇ ダウンロード
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════
+       HERO
+  ═══════════════════════════════════════════ -->
+  <section class="hero" id="top">
+    <div class="container">
+      <div class="hero__inner">
+
+        <div class="hero__eyebrow">
+          <span class="hero__eyebrow-dot"></span>
+          v2.0.0 — Windows 10/11 対応
+        </div>
+
+        <h1 class="hero__title">
+          <span class="hero__title-en">Dropbox Excel Date Updater</span>
+          Dropbox Excel<br>日付更新ツール
+        </h1>
+
+        <p class="hero__catch">
+          毎日・毎月の <strong>Excel 日付入力</strong> を自動化。<br>
+          Dropbox 上の Excel ファイルへ、指定セルに日付を一発で書き込む<br>
+          Windows 向けデスクトップツールです。
+        </p>
+
+        <div class="hero__badges">
+          <span class="badge"><span class="badge__dot"></span>Python 3.11+</span>
+          <span class="badge"><span class="badge__dot"></span>Windows Only</span>
+          <span class="badge"><span class="badge__dot"></span>openpyxl</span>
+          <span class="badge"><span class="badge__dot"></span>MIT License</span>
+          <span class="badge"><span class="badge__dot"></span>GUI (tkinter)</span>
+        </div>
+
+        <div class="hero__cta-group">
+          <a class="btn btn--primary"
+             href="https://github.com/slsprivateracksti/dropbox-excel-date-updater/releases/download/v2.0.0/main.exe"
+             target="_blank" rel="noopener">
+            <span class="btn__icon">⬇</span>
+            ダウンロード (main.exe)
+          </a>
+          <a class="btn btn--secondary"
+             href="https://github.com/slsprivateracksti/dropbox-excel-date-updater/releases/download/v2.0.0/dropbox-excel-date-updater-v2.0.0-source.zip"
+             target="_blank" rel="noopener">
+            <span class="btn__icon">📦</span>
+            ソースコード (.zip)
+          </a>
+          <a class="btn btn--secondary"
+             href="https://github.com/slsprivateracksti/dropbox-excel-date-updater"
+             target="_blank" rel="noopener">
+            <span class="btn__icon">⭐</span>
+            GitHub で見る
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Bar -->
+  <div class="stats">
+    <div class="container">
+      <div class="stats__inner">
+        <div class="stat">
+          <span class="stat__value">3</span>
+          <span class="stat__label">タブ構成</span>
+        </div>
+        <div class="stat">
+          <span class="stat__value">複数</span>
+          <span class="stat__label">施設・一括対応</span>
+        </div>
+        <div class="stat">
+          <span class="stat__value">CSV</span>
+          <span class="stat__label">実行ログ自動記録</span>
+        </div>
+        <div class="stat">
+          <span class="stat__value">JSON</span>
+          <span class="stat__label">パターン保存・移行</span>
+        </div>
+        <div class="stat">
+          <span class="stat__value">MIT</span>
+          <span class="stat__label">オープンソース</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       FEATURES
+  ═══════════════════════════════════════════ -->
+  <section class="section" id="features">
+    <div class="container">
+      <p class="section-label">Features</p>
+      <h2 class="section-title">3 つのタブで完結する<br>日付入力の自動化</h2>
+      <p class="section-lead">
+        介護・医療施設・バックオフィスなど、Dropbox を使って Excel を管理している方のために設計しています。
+      </p>
+
+      <div class="features__grid">
+
+        <!-- Card 1 -->
+        <div class="feature-card animate-in">
+          <span class="feature-card__number">TAB — 01</span>
+          <div class="feature-card__icon">📝</div>
+          <h3 class="feature-card__title">単体実行</h3>
+          <ul class="feature-card__list">
+            <li class="feature-card__item">Dropbox 内の Excel をダイアログで選択</li>
+            <li class="feature-card__item">シートをドロップダウンから選択（自動一覧表示）</li>
+            <li class="feature-card__item">セル範囲表記に対応（例：<code>H3:H20</code> / <code>I2, H3:H20</code>）</li>
+            <li class="feature-card__item">除外セル指定で特定セルだけスキップ</li>
+            <li class="feature-card__item">日付形式を自由設定（M/D / YYYY/MM/DD など）</li>
+            <li class="feature-card__item">実行前に 3 択確認ダイアログ</li>
+            <li class="feature-card__item">Excel を開きながらセルを選択して自動取込（pywin32）</li>
+          </ul>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="feature-card animate-in">
+          <span class="feature-card__number">TAB — 02</span>
+          <div class="feature-card__icon">⚡</div>
+          <h3 class="feature-card__title">一括実行</h3>
+          <ul class="feature-card__list">
+            <li class="feature-card__item">複数施設を同じ日付でまとめて処理</li>
+            <li class="feature-card__item">左リスト＋右詳細で施設をナビゲート</li>
+            <li class="feature-card__item">戻る・進むで施設を順番に確認</li>
+            <li class="feature-card__item">保存済みパターンから複数選択してリストへ追加</li>
+            <li class="feature-card__item">Dropbox フォルダスキャン＋ AND/OR 検索で追加</li>
+            <li class="feature-card__item">チェックで各施設の実行／除外を切り替え</li>
+          </ul>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="feature-card animate-in">
+          <span class="feature-card__number">TAB — 03</span>
+          <div class="feature-card__icon">🗂</div>
+          <h3 class="feature-card__title">履歴・パターン管理</h3>
+          <ul class="feature-card__list">
+            <li class="feature-card__item">設定をパターンとして保存・次回から呼び出し</li>
+            <li class="feature-card__item">パターンの複写・編集・別名保存</li>
+            <li class="feature-card__item">AND/OR 検索によるパターン絞り込み</li>
+            <li class="feature-card__item">実行ログを自動記録（日時・ユーザー・施設・結果）</li>
+            <li class="feature-card__item">ログを CSV でエクスポート</li>
+            <li class="feature-card__item">パターンを JSON でエクスポート/インポート（PC 間移行）</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       SCREENSHOTS
+  ═══════════════════════════════════════════ -->
+  <section class="section section--alt" id="screenshots">
+    <div class="container">
+      <p class="section-label">Screenshots</p>
+      <h2 class="section-title">実際の操作画面</h2>
+      <p class="section-lead">
+        シンプルで直感的な UI。初めて使う方でも迷わず操作できます。
+      </p>
+
+      <div class="gallery__grid">
+
+        <div class="gallery__item">
+          <div class="gallery__img-wrap">
+            <img
+              class="gallery__img"
+              src="../screenshots/main-overview.png"
+              alt="メイン画面全体のスクリーンショット"
+              loading="lazy"
+              onerror="this.parentElement.innerHTML='<div class=\'gallery__placeholder\'><div class=\'gallery__placeholder-icon\'>🖥</div><span>main-overview.png</span></div>'"
+            >
+          </div>
+          <div class="gallery__caption">
+            <div class="gallery__caption-title">メイン画面</div>
+            <div class="gallery__caption-desc">ツール起動直後の全体画面。3タブで機能を切り替えます。</div>
+          </div>
+        </div>
+
+        <div class="gallery__item">
+          <div class="gallery__img-wrap">
+            <img
+              class="gallery__img"
+              src="../screenshots/single-run-tab.png"
+              alt="単体実行タブのスクリーンショット"
+              loading="lazy"
+              onerror="this.parentElement.innerHTML='<div class=\'gallery__placeholder\'><div class=\'gallery__placeholder-icon\'>📝</div><span>single-run-tab.png</span></div>'"
+            >
+          </div>
+          <div class="gallery__caption">
+            <div class="gallery__caption-title">① 単体実行タブ</div>
+            <div class="gallery__caption-desc">ファイル・シート・セルを選んで 1 施設に日付を書き込みます。</div>
+          </div>
+        </div>
+
+        <div class="gallery__item">
+          <div class="gallery__img-wrap">
+            <img
+              class="gallery__img"
+              src="../screenshots/batch-run-tab.png"
+              alt="一括実行タブのスクリーンショット"
+              loading="lazy"
+              onerror="this.parentElement.innerHTML='<div class=\'gallery__placeholder\'><div class=\'gallery__placeholder-icon\'>⚡</div><span>batch-run-tab.png</span></div>'"
+            >
+          </div>
+          <div class="gallery__caption">
+            <div class="gallery__caption-title">② 一括実行タブ</div>
+            <div class="gallery__caption-desc">左リストで施設を選び、同じ日付をまとめて処理します。</div>
+          </div>
+        </div>
+
+        <div class="gallery__item">
+          <div class="gallery__img-wrap">
+            <img
+              class="gallery__img"
+              src="../screenshots/pattern-management-tab.png"
+              alt="履歴・パターン管理タブのスクリーンショット"
+              loading="lazy"
+              onerror="this.parentElement.innerHTML='<div class=\'gallery__placeholder\'><div class=\'gallery__placeholder-icon\'>🗂</div><span>pattern-management-tab.png</span></div>'"
+            >
+          </div>
+          <div class="gallery__caption">
+            <div class="gallery__caption-title">③ 履歴・パターン管理タブ</div>
+            <div class="gallery__caption-desc">保存済みパターンの管理と、実行ログの確認・エクスポート。</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       QUICK START
+  ═══════════════════════════════════════════ -->
+  <section class="section" id="quickstart">
+    <div class="container">
+      <p class="section-label">Quick Start</p>
+      <h2 class="section-title">ソース版クイックスタート</h2>
+      <p class="section-lead">
+        Python 環境をお持ちの方は、4 ステップで起動できます。<br>
+        環境を用意したくない方は <strong>main.exe</strong> をそのままお使いください。
+      </p>
+
+      <div class="quickstart__grid">
+
+        <div class="quickstart__steps">
+          <div class="step">
+            <div class="step__num">1</div>
+            <div class="step__body">
+              <div class="step__title">Python 3.11+ をインストール</div>
+              <div class="step__desc">
+                <a href="https://www.python.org/downloads/" target="_blank" rel="noopener" style="color:var(--teal)">python.org</a> から Python 3.11 以上をインストール。「Add Python to PATH」にチェックを忘れずに。
+              </div>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step__num">2</div>
+            <div class="step__body">
+              <div class="step__title">ライブラリをインストール</div>
+              <div class="step__desc">ソース zip を展開後、コマンドプロンプトでツールフォルダへ移動し実行。</div>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step__num">3</div>
+            <div class="step__body">
+              <div class="step__title">設定ファイルを作成</div>
+              <div class="step__desc">サンプルをコピーして、施設名・ファイルパス・シート名を編集。</div>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step__num">4</div>
+            <div class="step__body">
+              <div class="step__title">起動</div>
+              <div class="step__desc">メインウィンドウが表示されたら準備完了。詳細は <a href="INSTALL.md" style="color:var(--teal)">INSTALL.md</a> を参照。</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="code-block">
+          <div class="code-block__header">
+            <div class="code-block__dots">
+              <div class="code-block__dot"></div>
+              <div class="code-block__dot"></div>
+              <div class="code-block__dot"></div>
+            </div>
+            <span class="code-block__label">cmd / PowerShell</span>
+          </div>
+          <div class="code-block__body">
+            <pre><span class="comment"># ライブラリをインストール</span>
+<span class="cmd">pip</span> <span class="arg">install</span> <span class="flag">-r</span> requirements.txt
+
+<span class="comment"># 設定ファイルを作成</span>
+<span class="cmd">copy</span> config.xlsx_date_targets.sample.json <span class="arg">config.xlsx_date_targets.json</span>
+
+<span class="comment"># config.xlsx_date_targets.json を</span>
+<span class="comment"># テキストエディタで編集して施設情報を入力</span>
+
+<span class="comment"># 起動</span>
+<span class="cmd">python</span> <span class="arg">main.py</span></pre>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       REQUIREMENTS
+  ═══════════════════════════════════════════ -->
+  <section class="section section--dark" id="requirements">
+    <div class="container">
+      <p class="section-label" style="color:var(--teal-light)">Requirements</p>
+      <h2 class="section-title section-title--light">動作要件</h2>
+      <p class="section-lead section-lead--light">
+        Windows 専用ツールです。以下の環境をご確認ください。
+      </p>
+
+      <div class="req-grid">
+        <div class="req-card">
+          <div class="req-card__icon">🪟</div>
+          <div>
+            <div class="req-card__title">OS</div>
+            <div class="req-card__value">Windows 10 / 11</div>
+            <div class="req-card__note">64bit 推奨。macOS・Linux は非対応。</div>
+          </div>
+        </div>
+        <div class="req-card">
+          <div class="req-card__icon">🐍</div>
+          <div>
+            <div class="req-card__title">Python</div>
+            <div class="req-card__value">3.11 以上</div>
+            <div class="req-card__note">ソース版のみ必要。main.exe は不要。</div>
+          </div>
+        </div>
+        <div class="req-card">
+          <div class="req-card__icon">📦</div>
+          <div>
+            <div class="req-card__title">Dropbox</div>
+            <div class="req-card__value">デスクトップアプリ</div>
+            <div class="req-card__note">%USERPROFILE%\Dropbox が存在すること。</div>
+          </div>
+        </div>
+        <div class="req-card">
+          <div class="req-card__icon">📊</div>
+          <div>
+            <div class="req-card__title">Excel ファイル</div>
+            <div class="req-card__value">.xlsx / .xlsm</div>
+            <div class="req-card__note">Dropbox 同期済みのファイルに対して動作します。</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="req-warning">
+        <span class="req-warning__icon">⚠</span>
+        <span>
+          <strong>SmartScreen・Defender の警告について：</strong>
+          main.exe はコード署名なしのため、Windows Defender SmartScreen が「保護されました」と表示する場合があります。
+          これは署名なし exe に対する通常の挙動です。「詳細情報」→「実行」で起動できます。
+          不安な場合はソース版（zip）をご利用ください。
+        </span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       DOCS
+  ═══════════════════════════════════════════ -->
+  <section class="section section--alt" id="docs">
+    <div class="container">
+      <p class="section-label">Documentation</p>
+      <h2 class="section-title">ドキュメント・リンク集</h2>
+      <p class="section-lead">
+        操作説明書（PDF）から GitHub リポジトリまで、関連リソースをまとめました。
+      </p>
+
+      <div class="docs-grid">
+
+        <a class="doc-card"
+           href="https://github.com/slsprivateracksti/dropbox-excel-date-updater"
+           target="_blank" rel="noopener">
+          <div class="doc-card__icon">📁</div>
+          <div>
+            <div class="doc-card__title">GitHub リポジトリ</div>
+            <div class="doc-card__desc">ソースコード・Issue・Star</div>
+          </div>
+        </a>
+
+        <a class="doc-card"
+           href="https://github.com/slsprivateracksti/dropbox-excel-date-updater/releases/tag/v2.0.0"
+           target="_blank" rel="noopener">
+          <div class="doc-card__icon">🚀</div>
+          <div>
+            <div class="doc-card__title">Release v2.0.0</div>
+            <div class="doc-card__desc">zip / exe ダウンロード</div>
+          </div>
+        </a>
+
+        <a class="doc-card"
+           href="HowToUse_DropboxExcelTool.pdf"
+           target="_blank" rel="noopener">
+          <div class="doc-card__icon">📄</div>
+          <div>
+            <div class="doc-card__title">操作説明書（PDF）</div>
+            <div class="doc-card__desc">初めての方向け詳細ガイド</div>
+          </div>
+        </a>
+
+        <a class="doc-card"
+           href="https://github.com/slsprivateracksti/dropbox-excel-date-updater/blob/main/INSTALL.md"
+           target="_blank" rel="noopener">
+          <div class="doc-card__icon">⚙</div>
+          <div>
+            <div class="doc-card__title">INSTALL.md</div>
+            <div class="doc-card__desc">詳細セットアップ手順</div>
+          </div>
+        </a>
+
+        <a class="doc-card"
+           href="https://github.com/slsprivateracksti/dropbox-excel-date-updater/blob/main/FAQ.md"
+           target="_blank" rel="noopener">
+          <div class="doc-card__icon">❓</div>
+          <div>
+            <div class="doc-card__title">FAQ.md</div>
+            <div class="doc-card__desc">よくある質問・トラブル対応</div>
+          </div>
+        </a>
+
+        <a class="doc-card"
+           href="https://github.com/slsprivateracksti/dropbox-excel-date-updater/blob/main/CHANGELOG.md"
+           target="_blank" rel="noopener">
+          <div class="doc-card__icon">📋</div>
+          <div>
+            <div class="doc-card__title">CHANGELOG.md</div>
+            <div class="doc-card__desc">バージョンごとの更新履歴</div>
+          </div>
+        </a>
+
+        <a class="doc-card"
+           href="https://github.com/slsprivateracksti/dropbox-excel-date-updater/blob/main/README.md"
+           target="_blank" rel="noopener">
+          <div class="doc-card__icon">📖</div>
+          <div>
+            <div class="doc-card__title">README.md</div>
+            <div class="doc-card__desc">プロジェクト概要・機能一覧</div>
+          </div>
+        </a>
+
+        <a class="doc-card"
+           href="https://github.com/slsprivateracksti/dropbox-excel-date-updater/releases"
+           target="_blank" rel="noopener">
+          <div class="doc-card__icon">🏷</div>
+          <div>
+            <div class="doc-card__title">Releases 一覧</div>
+            <div class="doc-card__desc">過去バージョン・アーカイブ</div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       NOTICES
+  ═══════════════════════════════════════════ -->
+  <section class="section">
+    <div class="container">
+      <p class="section-label">Notes</p>
+      <h2 class="section-title">注意事項</h2>
+
+      <div class="notices">
+        <div class="notice">
+          <span class="notice__icon">⚠</span>
+          <span>
+            <strong>設定ファイルの作成が必要です。</strong>
+            初回は <code>config.xlsx_date_targets.sample.json</code> を <code>config.xlsx_date_targets.json</code> にコピーし、施設名・ファイルパス・シート名を編集してください。このファイルは環境ごとに個別の設定が必要です。
+          </span>
+        </div>
+        <div class="notice">
+          <span class="notice__icon">⚠</span>
+          <span>
+            <strong>書き込み中は Excel ファイルを開かないでください。</strong>
+            ツールによる書き込み処理中に対象の Excel ファイルを別のアプリで開いていると、保存に失敗する場合があります。実行前に Excel を閉じてください。
+          </span>
+        </div>
+        <div class="notice">
+          <span class="notice__icon">⚠</span>
+          <span>
+            <strong>Windows 専用ツールです。</strong>
+            本ツールは Windows 10 / 11 でのみ動作します。macOS・Linux には対応していません。
+          </span>
+        </div>
+        <div class="notice">
+          <span class="notice__icon">🛡</span>
+          <span>
+            <strong>SmartScreen 警告について。</strong>
+            main.exe はコード署名がないため、初回起動時に Windows SmartScreen または Defender の警告が出る場合があります。「詳細情報」→「実行」で起動できます。不安な場合はソースコード版（zip）をご利用ください。
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__brand">
+          <strong>Dropbox Excel Date Updater</strong>
+        </div>
+        <ul class="footer__links">
+          <li>
+            <a class="footer__link"
+               href="https://github.com/slsprivateracksti/dropbox-excel-date-updater"
+               target="_blank" rel="noopener">GitHub</a>
+          </li>
+          <li>
+            <a class="footer__link"
+               href="https://github.com/slsprivateracksti/dropbox-excel-date-updater/releases"
+               target="_blank" rel="noopener">Releases</a>
+          </li>
+          <li>
+            <a class="footer__link"
+               href="https://github.com/slsprivateracksti/dropbox-excel-date-updater/blob/main/LICENSE"
+               target="_blank" rel="noopener">MIT License</a>
+          </li>
+          <li>
+            <a class="footer__link"
+               href="HowToUse_DropboxExcelTool.pdf"
+               target="_blank" rel="noopener">説明書 PDF</a>
+          </li>
+        </ul>
+      </div>
+      <p class="footer__copy">
+        © 2026 Dropbox Excel Date Updater Contributors — Released under the MIT License
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>
