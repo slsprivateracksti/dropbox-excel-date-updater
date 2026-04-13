@@ -13,6 +13,11 @@ config.xlsx_date_targets.csv
 # 代わりにサンプルをリポジトリに含める
 !config.xlsx_date_targets.sample.json
 
+# PyInstaller
+build/
+dist/
+*.spec
+
 # VS Code
 .vscode/settings.json
 

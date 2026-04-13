@@ -6,12 +6,16 @@ config_loader.py
 import csv
 import json
 import os
+import sys
 from typing import Any
 
 FacilityConfig = dict[str, Any]
 TargetInfo = dict[str, Any]
 
-_HERE = os.path.dirname(os.path.abspath(__file__))
+if getattr(sys, "frozen", False):
+    _HERE = os.path.dirname(sys.executable)
+else:
+    _HERE = os.path.dirname(os.path.abspath(__file__))
 DEFAULT_JSON_PATH = os.path.join(_HERE, "config.xlsx_date_targets.json")
 DEFAULT_CSV_PATH  = os.path.join(_HERE, "config.xlsx_date_targets.csv")
 

@@ -6,10 +6,16 @@ pattern_store.py
 
 import json
 import os
+import sys
 from datetime import datetime
 from typing import Any
 
-_HERE = os.path.dirname(os.path.abspath(__file__))
+if getattr(sys, "frozen", False):
+    # PyInstaller でexe化された場合: exeファイルのあるフォルダを使う
+    _HERE = os.path.dirname(sys.executable)
+else:
+    # 通常の.py実行時
+    _HERE = os.path.dirname(os.path.abspath(__file__))
 DEFAULT_PATTERN_PATH = os.path.join(_HERE, "patterns.json")
 
 
@@ -17,7 +23,7 @@ class PatternStore:
     """
     パターンの構造:
     {
-      "pattern_name": str,        # 例: "A施設_通常"
+      "pattern_name": str,        # 例: "GHひらばり_通常"
       "facility_name": str,       # 施設名
       "file_path": str,           # Dropboxルートからの相対パス
       "sheet_name": str,          # シート名

@@ -5,11 +5,17 @@ log_manager.py
 
 import csv
 import os
+import sys
 from datetime import datetime
 from getpass import getuser
 from typing import Any
 
-_HERE = os.path.dirname(os.path.abspath(__file__))
+if getattr(sys, "frozen", False):
+    # PyInstaller でexe化された場合: exeファイルのあるフォルダを使う
+    _HERE = os.path.dirname(sys.executable)
+else:
+    # 通常の.py実行時
+    _HERE = os.path.dirname(os.path.abspath(__file__))
 DEFAULT_LOG_PATH = os.path.join(_HERE, "execution_log.csv")
 
 _FIELDNAMES = [
